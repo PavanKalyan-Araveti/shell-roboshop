@@ -8,7 +8,7 @@ N="\e[0m"
 USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOGS_FOLDER/$LOG_FILE.log"
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 echo "Scripting started executing at : $(date)"
 
 if [ $USERID -ne 0 ]; then
