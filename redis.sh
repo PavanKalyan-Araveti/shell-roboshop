@@ -9,7 +9,7 @@ USERID=$(id -u)
 LOGS_FOLDER="/var/log/shell-roboshop"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
-START_TIME=$(data +%s)
+START_TIME=$(date +%s)
 echo "Scripting started executing at : $(date)"
 
 if [ $USERID -ne 0 ]; then
