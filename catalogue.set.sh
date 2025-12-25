@@ -30,14 +30,14 @@ dnf module enable nodejs:20 -y  &>>$LOG_FILE
 dnf install nodejs -y &>>$LOG_FILE
 echo -e "Installing NodeJS 20 ... $G SUCCESS $N"
 
-#id roboshop
-#if [ $? -ne 0 ]; then
- #   useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
-#else
- #   echo -e "User already exist ... $Y SKIPPING $N"
-#fi
+id roboshop &>>$LOG_FILE
+if [ $? -ne 0 ]; then
+    useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
+else
+    echo -e "User already exist ... $Y SKIPPING $N"
+fi
 
- useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
+ #useradd --system --home /app --shell /sbin/nologin --comment "roboshop system user" roboshop &>>$LOG_FILE
 
 mkdir -p /app
 curl -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue-v3.zip &>>$LOG_FILE
